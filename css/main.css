@@ -296,11 +296,32 @@ textarea {
   height: 20px;
 }
 .light {
-  background-color: lightgreen;
+  background-color: lightgrey;
 }
 .dark {
-  background-color: darkgreen;
+  background-color: darkgrey;
 }
 .button {
     width: 12.48em;  height: 2em;
 }
+th {
+  background-color: #46629E;
+}
+.piece {
+  width: 48px;
+  heigh: 48px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*Moves*/
+/*Start*/
+#start {
+  display: none;
+}
+#white1 {
+  display: none;
+}
+/*#black1 {
+  display: none;
+}*/
