@@ -316,12 +316,15 @@ th {
 }
 /*Moves*/
 /*Start*/
-#start {
+.start {
   display: none;
 }
-#white1 {
+.white1 {
   display: none;
 }
-/*#black1 {
+#black1 {
   display: none;
-}*/
+}
+#white2 {
+  display: none;
+}
