@@ -18,7 +18,7 @@
 //   console.log("fastfoward")
 // });
 var currentMove = 0;
-var totalMoves = 3;
+var totalMoves = 9;
 
 
 $("#next").click(function() {
