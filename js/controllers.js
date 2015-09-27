@@ -1,22 +1,3 @@
-// $("#rewind").click(function() {
-//   console.log("rewind")
-// });
-//
-// $("#step_back").click(function() {
-//   console.log("stepback")
-// });
-//
-// $("#play_pause").click(function() {
-//   console.log("play/pause")
-// });
-//
-// $("#step_foward").click(function() {
-//   console.log("stepfoward")
-// });
-//
-// $("#fast_foward").click(function() {
-//   console.log("fastfoward")
-// });
 var currentMove = 0;
 var totalMoves = 9;
 
@@ -30,11 +11,8 @@ $("#next").click(function() {
     ++currentMove;
     nextId = "#move_" + currentMove;
 
-    $(currentId).removeClass("showMove");
     $(currentId).addClass("hideMove");
-
     $(nextId).removeClass("hideMove");
-    $(nextId).addClass("showMove");
   }
 });
 
@@ -47,19 +25,35 @@ $("#previous").click(function() {
     --currentMove;
     previousId = "#move_" + currentMove;
 
-    $(currentId).removeClass("showMove");
     $(currentId).addClass("hideMove");
-
     $(previousId).removeClass("hideMove");
-    $(previousId).addClass("showMove");
   }
 });
 
-// $("#play_pause").click(function() {
-//   $('#start').removeClass('start')
-//   $('#move_1').addClass('white1')
-// });
-// $("#move_1").click(function() {
-//   $('#start').addClass('start')
-//   $('#move_1').removeClass('white1')
-// });
+$("#rewind").click(function() {
+  currentMove = 0;
+  $("#move_0").removeClass("hideMove");
+  $("#move_1").addClass("hideMove");
+  $("#move_2").addClass("hideMove");
+  $("#move_3").addClass("hideMove");
+  $("#move_4").addClass("hideMove");
+  $("#move_5").addClass("hideMove");
+  $("#move_6").addClass("hideMove");
+  $("#move_7").addClass("hideMove");
+  $("#move_8").addClass("hideMove");
+  $("#move_9").addClass("hideMove");
+});
+
+$("#fast_foward").click(function() {
+  currentMove = 9;
+  $("#move_0").addClass("hideMove");
+  $("#move_1").addClass("hideMove");
+  $("#move_2").addClass("hideMove");
+  $("#move_3").addClass("hideMove");
+  $("#move_4").addClass("hideMove");
+  $("#move_5").addClass("hideMove");
+  $("#move_6").addClass("hideMove");
+  $("#move_7").addClass("hideMove");
+  $("#move_8").addClass("hideMove");
+  $("#move_9").removeClass("hideMove");
+});

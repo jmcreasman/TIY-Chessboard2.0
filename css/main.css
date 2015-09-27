@@ -280,56 +280,52 @@ textarea {
 }
 
 /*CHESS CSS STARTS HERE!*/
+body {
+  background-color: #46629E;
+}
+
 .board {
 	border:100px solid #46629E;
 	border-collapse:collapse;
 	padding:5px;
 }
+
 .board th {
 	border:10px solid #46629E;
 	padding:5px;
 }
+
 .board td {
 	border:0px
 	padding:5px;
-  width: 75px;
-  height: 20px;
+  width: 60px;
+  height: 60px;
 }
+
 .light {
   background-color: lightgrey;
 }
+
 .dark {
   background-color: darkgrey;
 }
+
 .button {
     width: 12.48em;  height: 2em;
 }
+
 th {
   background-color: #46629E;
 }
+
 .piece {
   width: 48px;
-  heigh: 48px;
+  height: 48px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-/*Moves*/
-/*Start*/
-/*.start {
-  display: none;
-}
-.white1 {
-  display: none;
-}*/
-.showMove {
-}
+
 .hideMove {
   display: none;
 }
-/*#move_2 {
-  display: none;
-}
-#move_3 {
-  display: none;
-}*/
