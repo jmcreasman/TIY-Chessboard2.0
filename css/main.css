@@ -288,6 +288,7 @@ body {
 	border:100px solid #46629E;
 	border-collapse:collapse;
 	padding:5px;
+  margin: auto;
 }
 
 .board th {
@@ -310,8 +311,24 @@ body {
   background-color: darkgrey;
 }
 
+.center{
+   text-align: center;
+}
+
+.queen{
+  position: absolute;
+    right: 300px;
+    top: 240px;
+    height: 500px;
+
+}
+
 .button {
-    width: 12.48em;  height: 2em;
+    width: 19.75em;  height: 2em;
+}
+
+#mute {
+  width: 4em;  height: 2em;
 }
 
 th {
