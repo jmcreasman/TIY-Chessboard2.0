@@ -27,18 +27,23 @@
   }); // END it should be a big Array
 
   it('should be able to move pieces', function(){
-    // board[0][0] = board[0][1];
-    game.applyMove(
-      // TODO: one day take { file: 'd', rank: 2 },
-      { rank: 6, file: 3 }, // from
-      // TODO: one day take { file: 'd', rank: 4 }
-      { rank: 4, file: 3 } // to
-    );
+    var board = game.board();
+    //Pre conditions...
+    expect(board[6][3]).to.equal('p');
+    expect(board[4][3]).to.be.null;
 
+    // Action to change the world...
+    expect(game.applyMove(
+      { rank: 6, file: 3 }, // from
+      { rank: 4, file: 3 } // to
+    ));.to.equal(undefined);
+
+    // Post conditions...
     var board = game.board();
 
-   //  chai.expect(board[6][3]).to.be.equal(null);
-   //  chai.expect(board[4][3]).to.be.equal('p');
+    chai.expect(board[6][3]).to.be.null;
+    chai.expect(board[4][3]).to.be.equal('p');
+
 
   });
 
