@@ -19,7 +19,11 @@
    * @var {Array} of...?
    */
   var moves = [
-    // TODO: Fill me in!
+    // May be wrong start
+    { from: { rank: 6, file: 3},
+      to: { rank: 4, file: 3}
+  }
+    // May be wrong finish
   ]; // END moves
 
   // var current; TODO: do we need this?
@@ -105,8 +109,16 @@
      *
      * @todo Fill me in! ...and remove this comment.
      */
-    function applyMove(from, to){
-      // You should write something in here...
+    applyMove: function(from, to){
+  // May be wrong start
+      moves[0].to = moves[0].from;
+      moves[0].from = null;
+
+        return moves[0].to;
+
+      console.log(board.join ('\n' + '|'));
+      return board.join('\n' + '|');
+        // May be wrong finish
     } // END applyMove
   }; // END game
 
