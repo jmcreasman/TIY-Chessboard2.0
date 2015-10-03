@@ -30,6 +30,7 @@
     // TODO: Fire tracer bullet!
     console.log("tracer bullet!");
     // TODO: Tell the Model -- `game` -- to advance to the previous move...
+    game.prev();
     // TODO: Tell the View -- `.chessboard` -- to update the position of the pieces based on `game.board()`
   });
 
@@ -37,6 +38,7 @@
     // TODO: Fire tracer bullet!
     console.log("tracer bullet!");
     // TODO: Tell the Model -- `game` -- to advance to the last move...
+    game.end();
     // TODO: Tell the View -- `.chessboard` -- to update the position of the pieces based on `game.board()`
   });
 
