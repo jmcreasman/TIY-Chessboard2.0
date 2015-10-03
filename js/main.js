@@ -19,14 +19,13 @@
    * @var {Array} of...?
    */
   var moves = [
-    // May be wrong start
-    { from: { rank: 6, file: 3},
-      to: { rank: 4, file: 3}
-  }
-    // May be wrong finish
+    { from: {rank: 6, file: 3},
+    to: { rank: 4,file: 3} }
+    // TODO: Fill me in!
   ]; // END moves
 
-  // var current; TODO: do we need this?
+// TODO: do we need this?
+  var current = 0;
 
   // You don't need to understand `globals` yet...
   var game = globals.game = {
@@ -92,7 +91,7 @@
       for ( var rank = 0; rank < board.length; rank++ ){
         bullet += '|';
         for ( var file = 0; file < board[rank].length; file++ ){
-          bullet += board[rank][file] || ' |';
+          bullet += (board[rank][file] || ' ') + '|';
         }
         bullet += '\n';
       }
@@ -110,15 +109,11 @@
      * @todo Fill me in! ...and remove this comment.
      */
     applyMove: function(from, to){
-  // May be wrong start
-      moves[0].to = moves[0].from;
-      moves[0].from = null;
-
-        return moves[0].to;
-
-      console.log(board.join ('\n' + '|'));
-      return board.join('\n' + '|');
-        // May be wrong finish
+      moves[0];
+      // board[4][3] = board[6][3];
+      // board[6][3] = null;
+      // board[2][5] = board[0][6];
+      // board[0][6] = null;
     } // END applyMove
   }; // END game
 
