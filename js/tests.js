@@ -1,4 +1,4 @@
-console.log(game.tracer());
+// console.log(game.tracer());
 
 (function(globals){ // IIFE
 // Not this again...

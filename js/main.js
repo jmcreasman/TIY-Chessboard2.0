@@ -19,12 +19,11 @@
    * @var {Array} of...?
    */
   var moves = [
-    { from: {rank: 6, file: 3},
-    to: { rank: 4,file: 3} }
-    // TODO: Fill me in!
+    { from: { rank: 6, file: 3 },
+      to: { rank: 4, file: 3 } }
   ]; // END moves
 
-// TODO: do we need this?
+// TODO: do we need this? Yes
   var current = 0;
 
   // You don't need to understand `globals` yet...
@@ -56,8 +55,7 @@
      * @todo Make this work!
      */
     next: function(){
-      // Doesn't this seem to be missing something?
-      return this;
+
     },
     /**
      * Advance the internal game board to the previous move.
@@ -109,7 +107,9 @@
      * @todo Fill me in! ...and remove this comment.
      */
     applyMove: function(from, to){
-      moves[0];
+      board[to.rank][to.file] = board[from.rank][from.file];
+      board[from.rank][from.file] = null;
+      console.log(game.tracer(game.applyMove));
       // board[4][3] = board[6][3];
       // board[6][3] = null;
       // board[2][5] = board[0][6];
