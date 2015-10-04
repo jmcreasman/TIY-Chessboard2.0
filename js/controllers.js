@@ -46,8 +46,8 @@
     // TODO: Fire tracer bullet!
     console.log("tracer bullet!");
     // TODO: Tell the Model -- `game` -- to do something it knows how to do...
+    game.reset();
     // TODO: Tell the View -- `.chessboard` -- to update the position of the pieces based on `game.board()`
   });
-
 // Am I supposed to recognize this?
 })(window || module && module.exports || this)

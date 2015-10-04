@@ -42,7 +42,7 @@
 // TODO: do we need this? Yes
   var current = 0;
   // var currentMove = 0;
-  var totalMoves = 9;
+  var totalMoves = moves.length;
   // You don't need to understand `globals` yet...
   var game = globals.game = {
     /**
@@ -62,7 +62,7 @@
      */
     reset: function(){
       board = initial();
-
+      console.log(game.tracer(game.applyMove));
       return this;
     },
     /**
@@ -72,14 +72,13 @@
      * @todo Make this work!
      */
     next: function(){
-      var currentMove = moves[current].from;
-      var nextMove = moves[current].to;
-      console.log(game.tracer(game.applyMove));
       if (current < totalMoves) {
+        game.applyMove(moves[current].from, moves[current].to);
         ++current;
-
-      game.applyMove(currentMove, nextMove);
+      } else {
+        console.log("Out of Moves");
       }
+      return this;
     },
     /**
      * Advance the internal game board to the previous move.
@@ -88,7 +87,12 @@
      * @todo Make this work!
      */
     prev: function(){
-      // Another good place for code...
+      if (current > 0) {
+        --current;
+        game.applyMove(moves[current].to, moves[current].from);
+      } else {
+        console.log("At First Move");
+      }
       return this;
     },
     /**
@@ -98,7 +102,9 @@
      * @todo Make this work!
      */
     end: function(){
-      // Write some code here...
+      while (current < moves.length) {
+        game.next();
+      }
       return this;
     },
     /**
@@ -147,6 +153,7 @@
    * @return {Array} of {Array} of {String|null}
    */
   function initial(){
+    current = 0;
     return [
       [ 'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R' ],
       [ 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P' ],
