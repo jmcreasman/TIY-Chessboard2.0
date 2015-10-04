@@ -284,19 +284,19 @@ body {
   background-color: #46629E;
 }
 
-.board {
+.chessboard {
 	border:100px solid #46629E;
 	border-collapse:collapse;
 	padding:5px;
   margin: auto;
 }
 
-.board th {
+.chessboard th {
 	border:10px solid #46629E;
 	padding:5px;
 }
 
-.board td {
+.chessboard td {
 	border:0px
 	padding:5px;
   width: 60px;

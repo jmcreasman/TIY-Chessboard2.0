@@ -1,6 +1,7 @@
 (function(globals){
 // Don't worry if that seems a little funky...
 
+var $chessboard = jQuery('.chessboard tbody');
   /**
    * Internal representation of the game board in its current state.
    *
@@ -140,6 +141,8 @@
       board[to.rank][to.file] = board[from.rank][from.file];
       board[from.rank][from.file] = null;
       console.log(game.tracer(game.applyMove));
+
+
       // board[4][3] = board[6][3];
       // board[6][3] = null;
       // board[2][5] = board[0][6];
@@ -154,7 +157,7 @@
    */
   function initial(){
     current = 0;
-    return [
+    var positions = [
       [ 'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R' ],
       [ 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P' ],
       Array(8).fill(null),
@@ -164,6 +167,27 @@
       [ 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p' ],
       [ 'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r' ],
     ];
+
+    var htmlBoard = htmlRow = [];
+    jQuery($chessboard).each(function(rank, row){
+      jQuery(row).each(function(file, piece){
+        // http://stackoverflow.com/questions/1442925/how-to-get-nth-jquery-element
+        var $square = $chessboard
+          .find('tr').eq(rank) // Get the `tr` inside the `chessboard` for the `rank`
+          .find('td').eq(file); // Get the `td` inside the `tr` for the `file`
+
+        if ($square) {
+          htmlRow.push($square);
+        }
+
+        console.log($square.get(), rank, file, piece);
+        // Use the log, Luke!
+      });
+      htmlBoard.push(htmlRow);
+      htmlRow = [];
+    });
+
+    return positions;
   } // END initial
 
 // You are not expected to understand anything below this line...
