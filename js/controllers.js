@@ -19,35 +19,23 @@
 
 
   $("#next").click(function(){
-    // TODO: Fire tracer bullet!
     console.log("tracer bullet!");
-    // TODO: Tell the Model -- `game` -- to advance to the next move...
     game.next();
-    // TODO: Tell the View -- `.chessboard` -- to update the position of the pieces based on `game.board()`
   });
 
   $("#previous").click(function(){
-    // TODO: Fire tracer bullet!
     console.log("tracer bullet!");
-    // TODO: Tell the Model -- `game` -- to advance to the previous move...
     game.prev();
-    // TODO: Tell the View -- `.chessboard` -- to update the position of the pieces based on `game.board()`
   });
 
   $("#fast_foward").click(function(){
-    // TODO: Fire tracer bullet!
     console.log("tracer bullet!");
-    // TODO: Tell the Model -- `game` -- to advance to the last move...
     game.end();
-    // TODO: Tell the View -- `.chessboard` -- to update the position of the pieces based on `game.board()`
   });
 
   $("#rewind").click(function(){
-    // TODO: Fire tracer bullet!
     console.log("tracer bullet!");
-    // TODO: Tell the Model -- `game` -- to do something it knows how to do...
     game.reset();
-    // TODO: Tell the View -- `.chessboard` -- to update the position of the pieces based on `game.board()`
   });
 // Am I supposed to recognize this?
 })(window || module && module.exports || this)
