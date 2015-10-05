@@ -1,59 +1,41 @@
-var currentMove = 0;
-var totalMoves = 9;
+(function(globals){ // What is this even? Do I need it?
+  /**
+   * Your pattern for Controller code:
+   *
+   * 1. What `TYPE` of interaction am I interested in?
+   * 2. What `SELECTOR` will get the element involved in the interaction?
+   * 3. What `CALLBACK` should be run when the interaction happens?
+   * 4. What should my `CALLBACK` do with it's `EVENT`...?
+   */
+  // document.querySelector(SELECTOR)
+  //   .addEventListener(TYPE, CALLBACK);
+  // AKA
+  // jQuery(SELECTOR).on(TYPE, CALLBACK);
+  // Where CALLBACK is...
+  // function CALLBACK (EVENT){
+    // Do something with Models and Views...
+    // Maybe do something with EVENT...?
+  // }
 
 
-$("#next").click(function() {
-  var currentId = "#move_" + currentMove;
-  var nextId = currentId;
-  //makes sure it doesn't go over the total number of moves in this game
-  // "I have another move to make"
-  if (currentMove < totalMoves) {
-    ++currentMove;
-    nextId = "#move_" + currentMove;
+  $("#next").click(function(){
+    console.log("tracer bullet!");
+    game.next();
+  });
 
-    $(currentId).addClass("hideMove");
-    $(nextId).removeClass("hideMove");
-  }
-});
+  $("#previous").click(function(){
+    console.log("tracer bullet!");
+    game.prev();
+  });
 
-$("#previous").click(function() {
-  var currentId = "#move_" + currentMove;
-  var previousId = currentId;
-  //makes sure it doesn't go over the total number of moves in this game
-  // "I have another move to make"
-  if (currentMove > 0) {
-    --currentMove;
-    previousId = "#move_" + currentMove;
+  $("#fast_foward").click(function(){
+    console.log("tracer bullet!");
+    game.end();
+  });
 
-    $(currentId).addClass("hideMove");
-    $(previousId).removeClass("hideMove");
-  }
-});
-
-$("#rewind").click(function() {
-  currentMove = 0;
-  $("#move_0").removeClass("hideMove");
-  $("#move_1").addClass("hideMove");
-  $("#move_2").addClass("hideMove");
-  $("#move_3").addClass("hideMove");
-  $("#move_4").addClass("hideMove");
-  $("#move_5").addClass("hideMove");
-  $("#move_6").addClass("hideMove");
-  $("#move_7").addClass("hideMove");
-  $("#move_8").addClass("hideMove");
-  $("#move_9").addClass("hideMove");
-});
-
-$("#fast_foward").click(function() {
-  currentMove = 9;
-  $("#move_0").addClass("hideMove");
-  $("#move_1").addClass("hideMove");
-  $("#move_2").addClass("hideMove");
-  $("#move_3").addClass("hideMove");
-  $("#move_4").addClass("hideMove");
-  $("#move_5").addClass("hideMove");
-  $("#move_6").addClass("hideMove");
-  $("#move_7").addClass("hideMove");
-  $("#move_8").addClass("hideMove");
-  $("#move_9").removeClass("hideMove");
-});
+  $("#rewind").click(function(){
+    console.log("tracer bullet!");
+    game.reset();
+  });
+// Am I supposed to recognize this?
+})(window || module && module.exports || this)

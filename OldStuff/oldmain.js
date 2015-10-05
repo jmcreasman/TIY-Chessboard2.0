@@ -1,7 +1,6 @@
 (function(globals){
 // Don't worry if that seems a little funky...
 
-var $chessboard = jQuery('.chessboard tbody');
   /**
    * Internal representation of the game board in its current state.
    *
@@ -20,30 +19,15 @@ var $chessboard = jQuery('.chessboard tbody');
    * @var {Array} of...?
    */
   var moves = [
-    { from: { rank: 6, file: 3 },
-      to: { rank: 4, file: 3 } },
-    { from: { rank: 0, file: 6 },
-      to: { rank: 2, file: 5 } },
-    { from: { rank: 6, file: 2 },
-      to: { rank: 4, file: 2 } },
-    { from: { rank: 1, file: 4 },
-      to: { rank: 2, file: 4 } },
-    { from: { rank: 6, file: 6 },
-      to: { rank: 5, file: 6 } },
-    { from: { rank: 1, file: 3 },
-      to: { rank: 3, file: 3 } },
-    { from: { rank: 7, file: 5 },
-      to: { rank: 6, file: 6 } },
-    { from: { rank: 0, file: 5 },
-      to: { rank: 1, file: 4 } },
-    { from: { rank: 7, file: 6 },
-      to: { rank: 5, file: 5 } }
+    // May be wrong start
+    { from: { rank: 6, file: 3},
+      to: { rank: 4, file: 3}
+  }
+    // May be wrong finish
   ]; // END moves
 
-// TODO: do we need this? Yes
-  var current = 0;
-  // var currentMove = 0;
-  var totalMoves = moves.length;
+  // var current; TODO: do we need this?
+
   // You don't need to understand `globals` yet...
   var game = globals.game = {
     /**
@@ -63,7 +47,7 @@ var $chessboard = jQuery('.chessboard tbody');
      */
     reset: function(){
       board = initial();
-      console.log(game.tracer(game.applyMove));
+
       return this;
     },
     /**
@@ -73,12 +57,7 @@ var $chessboard = jQuery('.chessboard tbody');
      * @todo Make this work!
      */
     next: function(){
-      if (current < totalMoves) {
-        game.applyMove(moves[current].from, moves[current].to);
-        ++current;
-      } else {
-        console.log("Out of Moves");
-      }
+      // Doesn't this seem to be missing something?
       return this;
     },
     /**
@@ -88,12 +67,7 @@ var $chessboard = jQuery('.chessboard tbody');
      * @todo Make this work!
      */
     prev: function(){
-      if (current > 0) {
-        --current;
-        game.applyMove(moves[current].to, moves[current].from);
-      } else {
-        console.log("At First Move");
-      }
+      // Another good place for code...
       return this;
     },
     /**
@@ -103,9 +77,7 @@ var $chessboard = jQuery('.chessboard tbody');
      * @todo Make this work!
      */
     end: function(){
-      while (current < moves.length) {
-        game.next();
-      }
+      // Write some code here...
       return this;
     },
     /**
@@ -120,7 +92,7 @@ var $chessboard = jQuery('.chessboard tbody');
       for ( var rank = 0; rank < board.length; rank++ ){
         bullet += '|';
         for ( var file = 0; file < board[rank].length; file++ ){
-          bullet += (board[rank][file] || ' ') + '|';
+          bullet += board[rank][file] || ' |';
         }
         bullet += '\n';
       }
@@ -138,15 +110,15 @@ var $chessboard = jQuery('.chessboard tbody');
      * @todo Fill me in! ...and remove this comment.
      */
     applyMove: function(from, to){
-      board[to.rank][to.file] = board[from.rank][from.file];
-      board[from.rank][from.file] = null;
-      console.log(game.tracer(game.applyMove));
+  // May be wrong start
+      moves[0].to = moves[0].from;
+      moves[0].from = null;
 
+        return moves[0].to;
 
-      // board[4][3] = board[6][3];
-      // board[6][3] = null;
-      // board[2][5] = board[0][6];
-      // board[0][6] = null;
+      console.log(board.join ('\n' + '|'));
+      return board.join('\n' + '|');
+        // May be wrong finish
     } // END applyMove
   }; // END game
 
@@ -156,8 +128,7 @@ var $chessboard = jQuery('.chessboard tbody');
    * @return {Array} of {Array} of {String|null}
    */
   function initial(){
-    current = 0;
-    var positions = [
+    return [
       [ 'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R' ],
       [ 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P' ],
       Array(8).fill(null),
@@ -167,27 +138,6 @@ var $chessboard = jQuery('.chessboard tbody');
       [ 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p' ],
       [ 'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r' ],
     ];
-
-    var htmlBoard = htmlRow = [];
-    jQuery($chessboard).each(function(rank, row){
-      jQuery(row).each(function(file, piece){
-        // http://stackoverflow.com/questions/1442925/how-to-get-nth-jquery-element
-        var $square = $chessboard
-          .find('tr').eq(rank) // Get the `tr` inside the `chessboard` for the `rank`
-          .find('td').eq(file); // Get the `td` inside the `tr` for the `file`
-
-        if ($square) {
-          htmlRow.push($square);
-        }
-
-        console.log($square.get(), rank, file, piece);
-        // Use the log, Luke!
-      });
-      htmlBoard.push(htmlRow);
-      htmlRow = [];
-    });
-
-    return positions;
   } // END initial
 
 // You are not expected to understand anything below this line...
